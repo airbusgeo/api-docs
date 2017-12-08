@@ -44,7 +44,7 @@ produces:
   - application/json
   
 host: order-qual.geoapi-airbusds.com:8443
-basePath: ""
+basePath: "/"
 schemes:
   - "https"
 
@@ -101,7 +101,6 @@ definitions:
     enum:
      - SPOT
      - PLEIADES
-     - TSX
   ProgCapacityResponseGeoconnector:
     type: object
     properties:
@@ -137,95 +136,95 @@ definitions:
         $ref: '#/definitions/ProgTypeName'
       progOptionsOptical:
         $ref: '#/definitions/ProgOptions'
-      progOptionsRadar:
-        $ref: '#/definitions/ProgOptionsTsx'
+#      progOptionsRadar:
+#        $ref: '#/definitions/ProgOptionsTsx'
   
-  ProgOptionsTsx:
-    type: object
-    properties:
-      advancedOptions:
-        $ref: '#/definitions/TsxAdvancedOptions'
-      standardOptions:
-        type: array
-        items:
-          $ref: '#/definitions/TsxStandardOptions'
+#  ProgOptionsTsx:
+#    type: object
+#    properties:
+#      advancedOptions:
+#        $ref: '#/definitions/TsxAdvancedOptions'
+#      standardOptions:
+#        type: array
+#        items:
+#          $ref: '#/definitions/TsxStandardOptions'
   
-  TsxAdvancedOptions:
-    type: object
-    properties:
-      incidenceAngle:
-        $ref: '#/definitions/TsxOption'
-      orbitDirection:
-        $ref: '#/definitions/TsxOption'
-      instrumentMode:
-        $ref: '#/definitions/TsxOption'
-      polarizationMode:
-        $ref: '#/definitions/TsxOption'
-      antennaLookDirection:
-        $ref: '#/definitions/TsxOption'
-      bandwidth:
-        $ref: '#/definitions/TsxOption'
-      application:
-        type: string
-      applicationGroup:
-        type: string
-      purpose:
-        type: string
-      productTypeId:
-        type: string
+#  TsxAdvancedOptions:
+#    type: object
+#    properties:
+#      incidenceAngle:
+#        $ref: '#/definitions/TsxOption'
+      # orbitDirection:
+        # $ref: '#/definitions/TsxOption'
+      # instrumentMode:
+        # $ref: '#/definitions/TsxOption'
+      # polarizationMode:
+        # $ref: '#/definitions/TsxOption'
+      # antennaLookDirection:
+        # $ref: '#/definitions/TsxOption'
+      # bandwidth:
+        # $ref: '#/definitions/TsxOption'
+      # application:
+        # type: string
+      # applicationGroup:
+        # type: string
+      # purpose:
+        # type: string
+      # productTypeId:
+        # type: string
   
-  TsxStandardOptions:
-    type: object
-    properties:
-      applicationOptions:
-        type: array
-        items:
-          $ref: '#/definitions/TsxApplicationOptions'
-      applicationGroup:
-        type: string
-      purpose:
-        type: string
-      productTypeId:
-        type: string
+  # TsxStandardOptions:
+    # type: object
+    # properties:
+      # applicationOptions:
+        # type: array
+        # items:
+          # $ref: '#/definitions/TsxApplicationOptions'
+      # applicationGroup:
+        # type: string
+      # purpose:
+        # type: string
+      # productTypeId:
+        # type: string
   
-  TsxApplicationOptions:
-    type: object
-    properties:
-      options:
-        type: array
-        items:
-          $ref: '#/definitions/TsxOption'
-      application:
-        type: string
+  # TsxApplicationOptions:
+    # type: object
+    # properties:
+      # options:
+        # type: array
+        # items:
+          # $ref: '#/definitions/TsxOption'
+      # application:
+        # type: string
   
-  TsxOption:
-    type: object
-    properties:
-      name:
-        type: string
-      type:
-        type: string
-      constraint:
-        type: string
-      productTypeId:
-        type: string
-      mandatory:
-        type: boolean
-      values:
-        type: array
-        items:
-          type: TsxOptionsValue
-      format:
-        type: string
-      defaultValue:
-        type: string              
-  TsxOptionsValue:
-    type: object
-    properties:
-      code: 
-        type: string
-      constraint:
-        type: string 
+  # TsxOption:
+    # type: object
+    # properties:
+      # name:
+        # type: string
+      # type:
+        # type: string
+      # constraint:
+        # type: string
+      # productTypeId:
+        # type: string
+      # mandatory:
+        # type: boolean
+      # values:
+        # type: array
+        # items:
+           # $ref: '#/definitions/TsxOptionsValue'
+      # format:
+        # type: string
+      # defaultValue:
+        # type: string              
+  # TsxOptionsValue:
+    # type: object
+    # properties:
+      # code: 
+        # type: string
+      # constraint:
+        # type: string 
 
   OptionsRequest:
     type: object
@@ -532,84 +531,7 @@ definitions:
             ],
             aoiId: 1,
             productTypeId: "SPOTArchive10Color",
-            properties: [
-              {
-                key: "http://adm.i3.com/ont/scene#shift",
-                value: "5"
-              },
-              {
-                key: "date",
-                value: "2012-09-16T09:26:43Z"
-              },
-              {
-                key: "geometryMaxX",
-                value: "9.07687956225646"
-              },
-              {
-                key: "geometryMaxY",
-                value: "42.27393795330642"
-              },
-              {
-                key: "geometryMinX",
-                value: "8.189353632881046"
-              },
-              {
-                key: "geometryMinY",
-                value: "41.645365338986835"
-              },
-              {
-                key: "uid",
-                value: "a4550d93280b4afc70e3949ffec78df1"
-              },
-              {
-                key: "id",
-                value: "40582651209160926432R5"
-              },
-              {
-                key: "spectralGrouping",
-                value: "grnm"
-              },
-              {
-                key: "vehicle",
-                value: "SPOT4"
-              },
-              {
-                key: "archivingStation",
-                value: "TT"
-              },
-              {
-                key: "cloudCover",
-                value: "0"
-              },
-              {
-                key: "groundStation",
-                value: "TT"
-              },
-              {
-                key: "incidenceAngle",
-                value: "3.88784"
-              },
-              {
-                key: "lookDirection",
-                value: "right"
-              },
-              {
-                key: "archiveName",
-                value: "SPOT archive"
-              },
-              {
-                key: "category",
-                value: "scene"
-              },
-              {
-                key: "productName",
-                value: "SPOT 10-m Colour"
-              },
-              {
-                key: "polygonIndex",
-                value: "aoi_polygon_1"
-              }
-            ]
+            properties: []
           }
         ],
         primaryMarket: "AGRI",
@@ -629,10 +551,6 @@ definitions:
                 {
                   key: "image_format",
                   value: "dimap_geotiff"
-                },
-                {
-                  key: "Account",
-                  value: "DDPORTAL"
                 },
                 {
                   key: "projection_1",
@@ -719,38 +637,38 @@ definitions:
       maxIncidenceAngleNotExtended:
         type: number
         format: double
-      extendedAngle:
-        $ref: '#/definitions/ValueOption'
-      acquisitionPeriod:
-        $ref: '#/definitions/DateValueOption'
-      maxCloudCover:
-        $ref: '#/definitions/ValueOption'
-      maxIncidenceAngle:
-        $ref: '#/definitions/ValueOption'
-      priority:
-        $ref: '#/definitions/ValueOption'
-      stereoMode:
-        $ref: '#/definitions/ValueOption'
-      tristereoMode:
-        $ref: '#/definitions/ValueOption'
-      acquisitionDuration:
-        $ref: '#/definitions/ValueOption'
-      temporalMode:
-        $ref: '#/definitions/ValueOption'
-      minBH:
-        $ref: '#/definitions/ValueOption'
-      maxBH:
-        $ref: '#/definitions/ValueOption'
-      acquisitionMode:
-        $ref: '#/definitions/ValueOption'
-      nbacquisitionRegularacquisition:
-        $ref: '#/definitions/ValueOption'
-      minIntervalRegularacquisition:
-        $ref: '#/definitions/ValueOption'
-      advancedOptions:
-        $ref: '#/definitions/OnePlanAdvancedOptions'
-      standardOptions:
-        $ref: '#/definitions/OnePlanStandardOptions'
+      # extendedAngle:
+        # $ref: '#/definitions/ValueOption'
+      # acquisitionPeriod:
+        # $ref: '#/definitions/DateValueOption'
+      # maxCloudCover:
+        # $ref: '#/definitions/ValueOption'
+      # maxIncidenceAngle:
+        # $ref: '#/definitions/ValueOption'
+      # priority:
+        # $ref: '#/definitions/ValueOption'
+      # stereoMode:
+        # $ref: '#/definitions/ValueOption'
+      # tristereoMode:
+        # $ref: '#/definitions/ValueOption'
+      # acquisitionDuration:
+        # $ref: '#/definitions/ValueOption'
+      # temporalMode:
+        # $ref: '#/definitions/ValueOption'
+      # minBH:
+        # $ref: '#/definitions/ValueOption'
+      # maxBH:
+        # $ref: '#/definitions/ValueOption'
+      # acquisitionMode:
+        # $ref: '#/definitions/ValueOption'
+      # nbacquisitionRegularacquisition:
+        # $ref: '#/definitions/ValueOption'
+      # minIntervalRegularacquisition:
+        # $ref: '#/definitions/ValueOption'
+      # advancedOptions:
+        # $ref: '#/definitions/OnePlanAdvancedOptions'
+      # standardOptions:
+        # $ref: '#/definitions/OnePlanStandardOptions'
     description: options returned by the ProgServer for tasking capacity.
   ProgType:
     type: object
@@ -785,21 +703,40 @@ definitions:
     type: object
     properties:
       footprint:
-        type: '#/definitions/Footprint'
-      acquisitionStartDate:
+        $ref: '#/definitions/Footprint'
+      acquisitionStartTime:
         $ref: '#/definitions/IsoDate'
-      acquisitionEndDate:
+      acquisitionStopTime:
         $ref: '#/definitions/IsoDate'
-      incidenceAngle:
+      acquisitionMethod:
+        $ref: '#/definitions/AcquisitionMethod'
+      # incidenceAngle:
+        # type: number
+        # format: double
+      # extendedAngle:
+        # type: boolean
+        # default: false
+      orderDeadline:
+        $ref: '#/definitions/IsoDate'
+      # taskingProperties:
+        # type: string
+  AcquisitionMethod:
+    type: object
+    properties:
+      instrument:
+        type: string
+      acquisitionParameters:
+        $ref: '#/definitions/AcquisitionParameters'
+  AcquisitionParameters:
+    type: object
+    properties:
+      incidence:
         type: number
         format: double
       extendedAngle:
         type: boolean
         default: false
-      orderDeadline:
-        $ref: '#/definitions/IsoDate'
-      taskingProperties:
-        type: string
+    
   Footprint:
     type: object
     properties:
@@ -1004,52 +941,52 @@ definitions:
         format: float
     description: request to get the capacities of the ProgServer for potential tasking.
 
-  SarParameters:
-    type: object
-    properties:
-      eleVationAngleMin:
-        type: number
-        format: float
-      eleVationAngleMax:
-        type: number
-        format: float
-      orbitDirection:
-        type: string
-        enum:
-          - ASCENDING
-          - DESCENDING
-          - BOTH
-      instrumentMode:
-        type: string
-        enum:
-          - ST
-          - HS
-          - SL
-          - SM
-          - SC
-          - WS
-        description: ST=STARING SPOT LIGHT;HS=HIGH RESOLUTION SPOT LIGHT;SL=SPOT LIGHT;SM=STRIP MAP;SC=SCAN SAR;WS=WIDE SCAN
-      polarizationMode:
-        type: string
-        enum:
-          - HH
-          - VV
-          - VH
-          - HV
-          - HHVV
-          - HHHV
-          - VVVH
+  # SarParameters:
+    # type: object
+    # properties:
+      # eleVationAngleMin:
+        # type: number
+        # format: float
+      # eleVationAngleMax:
+        # type: number
+        # format: float
+      # orbitDirection:
+        # type: string
+        # enum:
+          # - ASCENDING
+          # - DESCENDING
+          # - BOTH
+      # instrumentMode:
+        # type: string
+        # enum:
+          # - ST
+          # - HS
+          # - SL
+          # - SM
+          # - SC
+          # - WS
+        # description: ST=STARING SPOT LIGHT;HS=HIGH RESOLUTION SPOT LIGHT;SL=SPOT LIGHT;SM=STRIP MAP;SC=SCAN SAR;WS=WIDE SCAN
+      # polarizationMode:
+        # type: string
+        # enum:
+          # - HH
+          # - VV
+          # - VH
+          # - HV
+          # - HHVV
+          # - HHHV
+          # - VVVH
 
-      antennaLookDirection:
-        type: string
-        enum:
-          - R
-        description: R = RIGHT  
-      bandWidth:
-        type: string
-        enum:
-          - 150
-          - 300
+      # antennaLookDirection:
+        # type: string
+        # enum:
+          # - R
+        # description: R = RIGHT  
+      # bandWidth:
+        # type: string
+        # enum:
+          # - 150
+          # - 300
     
   TaskingCapacityRequest:
     type: object
@@ -1070,12 +1007,12 @@ definitions:
         $ref: '#/definitions/DateRange'
       optical:
         $ref: '#/definitions/OpticalParameters'
-      sar:
-        $ref: '#/definitions/SarParameters'
+      # sar:
+        # $ref: '#/definitions/SarParameters'
     description: request to get the capacities of the ProgServer for potential tasking.
     example: {
         progTypeNames: ["ONEDAY","ONEPLAN","ONESERIES"],
-        missions: ["TSX", "PLEIADES"],
+        missions: ["PLEIADES"],
         contractId: "DDPORTAL",
         aoi: {
             type: "Polygon",
@@ -1108,15 +1045,15 @@ definitions:
             maxCloudCover: "20.0",
             acqusitionMode: "STEREO"
         },
-        sar: {
-            elevationAngleMin: "15.0",
-            elevationAngleMax: "20.0",
-            orbitDirection: "BOTH",
-            instrumentMode: "ST",
-            polarizationMode: "HH",
-            antennaLookDirection: "R",
-            bandWidth: "150" 
-        }
+        # sar: {
+            # elevationAngleMin: "15.0",
+            # elevationAngleMax: "20.0",
+            # orbitDirection: "BOTH",
+            # instrumentMode: "ST",
+            # polarizationMode: "HH",
+            # antennaLookDirection: "R",
+            # bandWidth: "150" 
+        # }
     }
 
 ###############################################################################
@@ -1327,8 +1264,9 @@ paths:
             $ref: '#/definitions/AvailableOptions'
           examples: 
             application/json: |- 
-              [
-                availableOptions: {
+              {
+                availableOptions: [
+                 {
                   category: "technical_product",
                   defaultValue: "ortho",
                   label: "PROCESSING_LEVEL",
@@ -1350,7 +1288,8 @@ paths:
                     }
                   ]
                 }
-              ]  
+               ]  
+              }
       tags:
         - productType
         - order
@@ -1384,50 +1323,7 @@ paths:
               }
       tags:
         - order
-  # /tasking/capacity:
-  #   post:
-  #     summary: 'Tasking : programmation capacity and feasibility'
-  #     parameters:
-  #       - in: body
-  #         name: body
-  #         description: ''
-  #         required: true
-  #         schema:
-  #           $ref: '#/definitions/TaskingCapacityRequest'
-  #     security:
-  #       - api_key: []
-  #     responses:
-  #       '200':
-  #         description: Output type
-  #         schema:
-  #           $ref: '#/definitions/ProgCapacityResponseGeoconnector'
-  #         examples: 
-  #           application/json: |- 
-  #             {
-  #               progCapacity: [
-  #                 {
-  #                   mission: "PLEIADES",
-  #                   progTypes: 
-  #                   [
-  #                     {
-  #                       name: "ONEDAY",
-  #                       mission: "PLEIADES",
-  #                       available: true,
-  #                       progOptions: {
-  #                         maxIncidenceAngleExtended: 50,
-  #                         maxIncidenceAngleNotExtended: 30,
-  #                         acquisitionPeriod: {
-  #                           allowedValue: ["2017-08-05T17:00:00.000Z 2018-08-06T17:00:00.000Z"],
-  #                           defaultValue: ""
-  #                         }
-  #                       }
-  #                     }
-  #                   ]
-  #                 }
-  #               ]
-  #             }
-  #     tags:
-  #       - tasking
+
 
   /tasking/options:
     post:
@@ -1450,1177 +1346,7 @@ paths:
             application/json: |- 
               {
                 progCapacityOptions: [
-                    {
-                        mission: "TSX",
-                        progTypes: [
-                            {
-                                progTypeName: "ONEPLAN",
-                                progOptionsRadar: {
-                                    advancedOptions: {
-                                        incidenceAngle: {
-                                            type: "double",
-                                            range: {
-                                                min: 20,
-                                                max: 55
-                                            },
-                                            mandatory: true
-                                        },
-                                        orbitDirection: {
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [
-                                                {code: "ASCENDING"},
-                                                {code: "DESCENDING"},
-                                                {code: "BOTH"}
-                                            ]
-                                        },
-                                        instrumentMode: {
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [
-                                                {code: "ST"},
-                                                {code: "HS"},
-                                                {code: "SL"},
-                                                {code: "SM"},
-                                                {code: "SC"},
-                                                {code: "WS"}
-                                            ]
-                                        },
-                                        polarizationMode: {
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [
-                                                {code: "HH"},
-                                                {code: "VV"},
-                                                {code: "HV"},
-                                                {code: "VH"},
-                                                {code: "HHVV"},
-                                                {code: "HHHV"},
-                                                {code: "VVVH"}
-                                            ]
-                                        },
-                                        antennaLookDirection: {
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                        },
-                                        bandWidth: {
-                                            type: "list",
-                                            constraint: "instrumentMode:HS",
-                                            mandatory: false,
-                                            values: [
-                                                {code: "None"},
-                                                {code: "150"},
-                                                {code: "300"}
-                                            ],
-                                            defaultValue: "300"
-                                        },
-                                        application: "default",
-                                        applicationGroup: "Others",
-                                        purpose: "Others",
-                                        productTypeId: "TSXTaskingOnePlanOthers"
-                                    },
-                                    standardOptions: [
-                                      {
-                                        applicationGroup: "maritimeMonitoring",
-                                        purpose: "Maritime Services",
-                                        applicationOptions: [{
-                                          application: "shipDetectionOpen",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "35"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "45"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "WS"
-                                            },
-                                            {
-                                              code: "SC"
-                                            },
-                                            {
-                                              code: "SM"
-                                            }],
-                                            defaultValue: "SC"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "HH"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "bandWidth",
-                                            type: "double",
-                                            constraint: "instrumentMode:HS",
-                                            range: {
-                                              min: 150.0,
-                                              max: 300.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "300"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "TSXTaskingOnePlanMaritime"
-                                          }]
-                                        },
-                                        {
-                                          application: "shipDetectionShore",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "35"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "55"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "ST"
-                                            },
-                                            {
-                                              code: "HS"
-                                            },
-                                            {
-                                              code: "SL"
-                                            }],
-                                            defaultValue: "ST"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "HH"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "bandWidth",
-                                            type: "double",
-                                            constraint: "instrumentMode:HS",
-                                            range: {
-                                              min: 150.0,
-                                              max: 300.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "300"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "TSXTaskingOnePlanMaritime"
-                                          }]
-                                        },
-                                        {
-                                          application: "oilSpillDetection",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "30"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "40"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "WS"
-                                            },
-                                            {
-                                              code: "SC"
-                                            },
-                                            {
-                                              code: "SM"
-                                            }],
-                                            defaultValue: "SC"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "VV"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "bandWidth",
-                                            type: "double",
-                                            constraint: "instrumentMode:HS",
-                                            range: {
-                                              min: 150.0,
-                                              max: 300.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "300"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "TSXTaskingOnePlanMaritime"
-                                          }]
-                                        },
-                                        {
-                                          application: "seaIceInformation",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "25"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "40"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "WS"
-                                            },
-                                            {
-                                              code: "SC"
-                                            },
-                                            {
-                                              code: "SM"
-                                            }],
-                                            defaultValue: "SC"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "HH"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "bandWidth",
-                                            type: "double",
-                                            constraint: "instrumentMode:HS",
-                                            range: {
-                                              min: 150.0,
-                                              max: 300.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "300"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "TSXTaskingOnePlanMaritime"
-                                          }]
-                                        },
-                                        {
-                                          application: "secondarySeaIceInformation",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "25"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "40"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "WS"
-                                            },
-                                            {
-                                              code: "SC"
-                                            },
-                                            {
-                                              code: "SM"
-                                            }],
-                                            defaultValue: "SC"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "HH"
-                                            },
-                                            {
-                                              code: "VV"
-                                            }],
-                                            defaultValue: "VV"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "bandWidth",
-                                            type: "double",
-                                            constraint: "instrumentMode:HS",
-                                            range: {
-                                              min: 150.0,
-                                              max: 300.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "300"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "TSXTaskingOnePlanMaritime"
-                                          }]
-                                        },
-                                        {
-                                          application: "icebergs",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "30"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "55"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "WS"
-                                            },
-                                            {
-                                              code: "SC"
-                                            },
-                                            {
-                                              code: "SM"
-                                            }],
-                                            defaultValue: "SC"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "HH"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "bandWidth",
-                                            type: "double",
-                                            constraint: "instrumentMode:HS",
-                                            range: {
-                                              min: 150.0,
-                                              max: 300.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "300"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "TSXTaskingOnePlanMaritime"
-                                          }]
-                                        }]
-                                      },
-                                      {
-                                        applicationGroup: "others",
-                                        purpose: "Others",
-                                        applicationOptions: [{
-                                          application: "default",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "20"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "55"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "WS"
-                                            },
-                                            {
-                                              code: "SC"
-                                            },
-                                            {
-                                              code: "SM"
-                                            },
-                                            {
-                                              code: "ST"
-                                            },
-                                            {
-                                              code: "HS"
-                                            },
-                                            {
-                                              code: "SL"
-                                            }]
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "HH"
-                                            },
-                                            {
-                                              code: "VV"
-                                            },
-                                            {
-                                              code: "HHVV"
-                                            },
-                                            {
-                                              code: "HHHV"
-                                            },
-                                            {
-                                              code: "VVVH"
-                                            },
-                                            {
-                                              code: "HV"
-                                            },
-                                            {
-                                              code: "VH"
-                                            }]
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "bandWidth",
-                                            type: "double",
-                                            constraint: "instrumentMode:HS",
-                                            range: {
-                                              min: 150.0,
-                                              max: 300.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "300"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }]
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "TSXTaskingOnePlanOthers"
-                                          }]
-                                        }]
-                                      },
-                                      {
-                                        applicationGroup: "environmentalMapping",
-                                        purpose: "Forestry",
-                                        applicationOptions: [{
-                                          application: "forestry",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "40"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "50"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "SC"
-                                            },
-                                            {
-                                              code: "SM"
-                                            },
-                                            {
-                                              code: "SL"
-                                            }],
-                                            defaultValue: "SC"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "HHVV",
-                                              constraint: "instrumentMode:SM|SL"
-                                            },
-                                            {
-                                              code: "VV",
-                                              constraint: "instrumentMode:SC"
-                                            }],
-                                            defaultValue: "HHVV"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "TSXTaskingOnePlanForestryRE",
-                                              constraint: "instrumentMode:SC"
-                                            },
-                                            {
-                                              code: "TSXTaskingOnePlanForestrySE",
-                                              constraint: "instrumentMode:SM|SL"
-                                            }]
-                                          }]
-                                        }]
-                                      },
-                                      {
-                                        applicationGroup: "topographicMapping",
-                                        purpose: "Mapping",
-                                        applicationOptions: [{
-                                          application: "default",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "20"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "30"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "SM"
-                                            },
-                                            {
-                                              code: "SL"
-                                            },
-                                            {
-                                              code: "SC"
-                                            }],
-                                            defaultValue: "SM"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "HH"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "TSXTaskingOnePlanMappingSE",
-                                              constraint: "instrumentMode:SM|SL"
-                                            },
-                                            {
-                                              code: "TSXTaskingOnePlanMappingRE",
-                                              constraint: "instrumentMode:SC"
-                                            }]
-                                          }]
-                                        }]
-                                      },
-                                      {
-                                        applicationGroup: "geospatialImageIntelligence",
-                                        purpose: "Defence & Security",
-                                        applicationOptions: [{
-                                          application: "default",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "40"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "50"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "ST"
-                                            },
-                                            {
-                                              code: "HS"
-                                            },
-                                            {
-                                              code: "SL"
-                                            }],
-                                            defaultValue: "ST"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "HH"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "bandWidth",
-                                            type: "double",
-                                            constraint: "instrumentMode:HS",
-                                            range: {
-                                              min: 150.0,
-                                              max: 300.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "300"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "TSXTaskingOnePlanDefence"
-                                          }]
-                                        }]
-                                      },
-                                      {
-                                        applicationGroup: "environmentalMapping",
-                                        purpose: "Agriculture",
-                                        applicationOptions: [{
-                                          application: "agriculture",
-                                          options: [{
-                                            name: "acquisitionPeriodStartDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "acquisitionPeriodEndDate",
-                                            type: "date",
-                                            mandatory: true,
-                                            format: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                          },
-                                          {
-                                            name: "elevationAngleMin",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "40"
-                                          },
-                                          {
-                                            name: "elevationAngleMax",
-                                            type: "double",
-                                            range: {
-                                              min: 20.0,
-                                              max: 55.0
-                                            },
-                                            mandatory: true,
-                                            defaultValue: "50"
-                                          },
-                                          {
-                                            name: "instrumentMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "SM"
-                                            },
-                                            {
-                                              code: "SL"
-                                            },
-                                            {
-                                              code: "SC"
-                                            }],
-                                            defaultValue: "SM"
-                                          },
-                                          {
-                                            name: "polarizationMode",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "HHVV",
-                                              constraint: "instrumentMode:SM|SL"
-                                            },
-                                            {
-                                              code: "VV",
-                                              constraint: "instrumentMode:SC"
-                                            }],
-                                            defaultValue: "HHVV"
-                                          },
-                                          {
-                                            name: "antennaLookDirection",
-                                            type: "text",
-                                            mandatory: true,
-                                            defaultValue: "R"
-                                          },
-                                          {
-                                            name: "orbitDirection",
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "BOTH"
-                                            },
-                                            {
-                                              code: "ASCENDING"
-                                            },
-                                            {
-                                              code: "DESCENDING"
-                                            }],
-                                            defaultValue: "BOTH"
-                                          },
-                                          {
-                                            name: productTypeId,
-                                            type: "list",
-                                            mandatory: true,
-                                            values: [{
-                                              code: "TSXTaskingOnePlanAgricultureSE",
-                                              constraint: "instrumentMode:SM|SL"
-                                            },
-                                            {
-                                              code: "TSXTaskingOnePlanAgricultureRE",
-                                              constraint: "instrumentMode:SC"
-                                            }]
-                                          }]
-                                        }]
-                                      }
-                                    ]
-                                }
-                            }
-                        ]
-                    },
+                    
                     {
                         mission: "PLEIADES",
                         progTypes: [
@@ -2790,43 +1516,35 @@ paths:
                                               geometry: "POLYGON((0.959209 49.466415, 0.959345 49.412507, 1.237487 49.412474, 1.237615 49.466416, 0.959209 49.466415, 0.959209 49.466415))",
                                               center: "POINT(1.098428 49.439457)"
                                           },
-                                          acquisitionStartDate: "2017-09-05T13:01:36.499Z",
-                                          acquisitionEndDate: "2017-09-05T13:01:37.099Z",
-                                          incidenceAngle: 11.8,
-                                          extendedAngle: false,
-                                          orderDeadline: "2017-09-05T05:32:00.499Z",
-                                          taskingProperties: "-1938074824::[{\"key\":\"acqPeriod\", \"value\":\"2018-08-03T12:59:18.699Z 2018-08-03T12:59:22.149Z\"},{\"key\":\"extendedValue\", \"value\":false},{\"key\":\"geometryWkt\", \"value\":\"POLYGON((1.221306 43.952612, 1.221624 43.74293, 1.470968 43.742585, 1.471252 43.952611, 1.221306 43.952612, 1.221306 43.952612))\"},{\"key\":\"orderDeadLine\", \"value\":\"2018-08-03T04:55:00.699Z\"}]"
+                                          acquisitionStartTime: "2017-09-05T13:01:36.499Z",
+                                          acquisitionStopTime: "2017-09-05T13:01:37.099Z",
+                                          acquisitionMethod: {
+                                              instrument: "PHR-1A HRI",
+                                              acquisitionParameters: {
+                                                incidence: 11.8,
+                                                extendedAngle: false
+                                              }
+                                          },
+                                          orderDeadline: "2017-09-05T05:32:00.499Z"
                                       },
                                       {
                                           footprint: {
                                               geometry: "POLYGON((0.959968 49.466414, 0.960129 49.412541, 1.237093 49.412437, 1.237244 49.466414, 0.959968 49.466414, 0.959968 49.466414))",
                                               center: "POINT(1.098653 49.439456)"
                                           },
-                                          acquisitionStartDate: "2017-09-11T13:05:20.499Z",
-                                          acquisitionEndDate: "2017-09-11T13:05:21.387Z",
-                                          incidenceAngle: 12.29,
-                                          extendedAngle: false,
-                                          orderDeadline: "2017-09-11T05:32:00.499Z",
-                                          taskingProperties: "-1938074824::[{\"key\":\"acqPeriod\", \"value\":\"2018-08-03T12:59:18.699Z 2018-08-03T12:59:22.149Z\"},{\"key\":\"extendedValue\", \"value\":false},{\"key\":\"geometryWkt\", \"value\":\"POLYGON((1.221306 43.952612, 1.221624 43.74293, 1.470968 43.742585, 1.471252 43.952611, 1.221306 43.952612, 1.221306 43.952612))\"},{\"key\":\"orderDeadLine\", \"value\":\"2018-08-03T04:55:00.699Z\"}]"
+                                          acquisitionStartTime: "2017-09-11T13:05:20.499Z",
+                                          acquisitionStopTime: "2017-09-11T13:05:21.387Z",
+                                          acquisitionMethod: {
+                                              instrument: "PHR-1A HRI",
+                                              acquisitionParameters: {
+                                                incidence: 12.29,
+                                                extendedAngle: false
+                                              }
+                                          },
+                                          orderDeadline: "2017-09-11T05:32:00.499Z"
                                       }
                                   ],
                                   available: true
-                              }
-                          ]
-                      },
-                      {
-                          mission: "TSX",
-                          progTypes: [
-                              {
-                                  name: "ONEPLAN",
-                                  errors: [
-                                      {
-                                          code:  "INVALID_PARAMETER_VALUE",
-                                          locator: "eo:AcquisitionParameters",
-                                          message: "150MHz bandwidth not allowed for ST"
-                                      }
-                                  ],
-                                  available: false
                               }
                           ]
                       }
