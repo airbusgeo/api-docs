@@ -1,0 +1,279 @@
+swagger: "2.0"
+
+info:
+  description: "OneAtlas Data API."
+  title: "oneatlas-data"
+  version: "0.1.0"
+
+host: "oneatlas-data.geoapi-airbusds.com"
+basePath: "/api/v1"
+
+consumes:
+- "application/json"
+produces:
+- "application/json"
+schemes:
+- "https"
+
+definitions:  
+  healthMessage:
+    properties:
+      status:
+        type: string  
+  productionType:
+    type: string
+    enum:
+      - stream8bits3bands
+      - download8bits4bands
+      - download12bits4bands
+      - download16bits4bands    
+  order:
+    properties:        
+      status:
+        type: string
+        enum:
+          - created
+          - ordered
+          - delivered
+      credits:
+        type: integer
+      contractId:
+        type: string
+      userId:
+        type: string
+      id:
+        type: string
+      createdAt:
+        type: string
+      productionType:
+        type: string
+
+      _links:
+        properties:
+          self:
+            properties:
+              href:
+                type: string
+      products:
+        type: array
+        items:
+          $ref: '#/definitions/product'
+  product:
+    properties:
+      orderId:
+        type: string
+      status:
+        type: string
+        enum: 
+          - pending
+          - delivered
+      userId:
+        type: string
+      aoi:
+        type: object
+      credits:
+        type: string
+      deliveries:
+        properties:
+          download: 
+            properties:
+              status:
+                type: string
+                enum:
+                  - pending
+                  - delivered
+              href:
+                type: string
+          stream: 
+            properties:
+              status:
+                type: string
+                enum:
+                  - pending
+                  - delivered
+              href:
+                type: string
+      id:
+        type: string
+      createdAt:
+        type: string
+      contractId:
+        type: integer
+      source:
+        type: object
+  user:
+    properties:
+      id:
+        type: string
+      contract:
+        properties:
+          credits:
+            type: string
+          company:
+            type: string
+          id:
+            type: integer
+
+paths:
+  "/health":
+    get:
+      description: "Get an health status."
+      operationId: "health"
+      responses:
+        200:
+          description: "health"
+          schema:
+            $ref: '#/definitions/healthMessage'
+      security:
+      - google_id_token: [] 
+                 
+  "/users/me":
+    get:
+      description: "Get the user info."
+      operationId: "getUser"
+      responses:
+        200:
+          description: "user"
+          schema:
+            $ref: '#/definitions/user'
+      security:
+      - google_id_token: []   
+
+  "/search":
+    post:
+      description: "Search in archive catalog."
+      operationId: "search"
+      responses:
+        200:
+          description: "search"
+      security:
+      - google_id_token: []            
+  
+  "/prices":
+    post:
+      description: "Get a price."
+      operationId: "getPrice"
+      responses:
+        200:
+          description: "getPrice"          
+      security:
+      - google_id_token: []   
+  
+  "/orders":
+    post:
+      description: "Create an order."
+      operationId: "createOrder"
+      responses:
+        200:
+          description: "createOrder"
+          schema:
+            $ref: '#/definitions/order'
+      security:
+      - google_id_token: []   
+    get:
+      description: "Get all orders."
+      operationId: "getOrders"
+      responses:
+        200:
+          description: "getOrders"
+             
+      security:
+      - google_id_token: []   
+
+  "/orders/{orderId}":
+    get:
+      operationId: "getOrder"
+      summary: "Get an order by id."
+      parameters:
+        - in: path
+          name: orderId
+          type: string
+          required: true
+          description: order id
+      responses:
+        200:
+          description: "order"
+      security:
+      - google_id_token: []  
+  
+  "/products":
+    get:
+      operationId: "getProducts"
+      summary: "Get all products."
+      responses:
+        200:
+          description: "products"
+      security:
+      - google_id_token: []  
+
+  "/products/{productId}":
+    get:
+      operationId: "getProduct"
+      summary: "Get a product by id."
+      parameters:
+        - in: path
+          name: productId
+          type: string
+          required: true
+          description: productId
+      responses:
+        200:
+          description: "product"
+      security:
+      - google_id_token: []  
+
+  "/products/{productId}/download":
+    get:
+      operationId: "getDownloadProduct"
+      summary: "Get a product download url."
+      parameters:
+        - in: path
+          name: productId
+          type: string
+          required: true
+          description: product download
+      responses:
+        200:
+          description: "productDownloadUrl"
+      security:
+      - google_id_token: []  
+
+  "/productionTypes":
+    get:
+      description: "Get all production types."
+      operationId: "productionTypes"
+      responses:
+        200:
+          description: "productionTypes"
+      security:
+      - google_id_token: []   
+
+  "/oauth2/step1":
+    get:
+      description: "Oauth2 step1."
+      operationId: "oauthStep1"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "oauthStep1"          
+  
+  "/oauth2/step2":
+    get:
+      description: "Oauth2 step2."
+      operationId: "oauthStep2"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "oauthStep2"          
+
+  "/oauth2/refresh":
+    get:
+      description: "Oauth2 refresh."
+      operationId: "oauthRefresh"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "oauthRefresh"          
