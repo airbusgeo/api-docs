@@ -15,11 +15,15 @@ produces:
 schemes:
 - "https"
 
+tags:
+  - name: authentication
+    description: Authentication endpoints
+  - name: search
+    description: Search endpoints
+  - name: orders
+    description: Orders & products endpoints
+
 definitions:  
-  healthMessage:
-    properties:
-      status:
-        type: string  
   productionType:
     type: string
     enum:
@@ -114,21 +118,11 @@ definitions:
           id:
             type: integer
 
-paths:
-  "/health":
-    get:
-      description: "Get an health status."
-      operationId: "health"
-      responses:
-        200:
-          description: "health"
-          schema:
-            $ref: '#/definitions/healthMessage'
-      security:
-      - google_id_token: [] 
-                 
+paths:      
   "/users/me":
     get:
+      tags:
+        - authentication
       description: "Get the user info."
       operationId: "getUser"
       responses:
@@ -141,6 +135,8 @@ paths:
 
   "/search":
     post:
+      tags:
+        - search
       description: "Search in archive catalog."
       operationId: "search"
       responses:
@@ -151,6 +147,8 @@ paths:
   
   "/prices":
     post:
+      tags:
+        - orders    
       description: "Get a price."
       operationId: "getPrice"
       responses:
@@ -161,6 +159,8 @@ paths:
   
   "/orders":
     post:
+      tags:
+        - orders    
       description: "Create an order."
       operationId: "createOrder"
       responses:
@@ -171,6 +171,8 @@ paths:
       security:
       - google_id_token: []   
     get:
+      tags:
+        - orders    
       description: "Get all orders."
       operationId: "getOrders"
       responses:
@@ -182,6 +184,8 @@ paths:
 
   "/orders/{orderId}":
     get:
+      tags:
+        - orders    
       operationId: "getOrder"
       summary: "Get an order by id."
       parameters:
@@ -198,6 +202,8 @@ paths:
   
   "/products":
     get:
+      tags:
+        - orders    
       operationId: "getProducts"
       summary: "Get all products."
       responses:
@@ -208,6 +214,8 @@ paths:
 
   "/products/{productId}":
     get:
+      tags:
+        - orders    
       operationId: "getProduct"
       summary: "Get a product by id."
       parameters:
@@ -224,6 +232,8 @@ paths:
 
   "/products/{productId}/download":
     get:
+      tags:
+        - orders    
       operationId: "getDownloadProduct"
       summary: "Get a product download url."
       parameters:
@@ -238,18 +248,10 @@ paths:
       security:
       - google_id_token: []  
 
-  "/productionTypes":
-    get:
-      description: "Get all production types."
-      operationId: "productionTypes"
-      responses:
-        200:
-          description: "productionTypes"
-      security:
-      - google_id_token: []   
-
   "/oauth2/step1":
     get:
+      tags:
+        - authentication    
       description: "Oauth2 step1."
       operationId: "oauthStep1"
       produces:
@@ -260,6 +262,8 @@ paths:
   
   "/oauth2/step2":
     get:
+      tags:
+        - authentication    
       description: "Oauth2 step2."
       operationId: "oauthStep2"
       produces:
@@ -270,6 +274,8 @@ paths:
 
   "/oauth2/refresh":
     get:
+      tags:
+        - authentication    
       description: "Oauth2 refresh."
       operationId: "oauthRefresh"
       produces:
